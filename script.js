@@ -150,53 +150,153 @@ Write a javascript function which accepts an argument and returns the type . Not
 function checkType() {
 
 }
+
 checkType()
 
 //--------------------------------------------------------------------------
 
 
 
-/* Question
+/* Question 11  ****imp ques***
 
 Write a javascript function to get the number of occurences of each letter in specified string */
+function checkOccurences(str) {
+    let occ = {};
+    str.split("").forEach(function (val) {
+        if (occ.hasOwnProperty(val) === false) {
+            occ[val] = 1;
+        }
+        else {
+            occ[val]++;
+        }
+    })
+
+
+}
+console.log(checkOccurences("sawera"));
 
 //----------------------------------------------------------
 
 
-
-
-/* Question
+/* Question 12
 Loop an array and add all members of it */
 
+//1st way
+let number = [2, 4, 6, 8];
+let sum = 0;
+number.forEach(function (val) {
+    sum = sum + val;
+
+})
+console.log(sum); //20
+
+//2nd way using reduce
+let count = [2, 4, 6, 8];
+let result = count.reduce((acc, val) => acc + val, 0);
+
+console.log(result); // 20
+
+
 //-----------------------------------------------------------------
 
 
 
-
-/* Question
-Loop an array of objects and remove all objects which don't have gender's value male*/
-
-//-----------------------------------------------------------------
-
-
-
-
-
-/* Question
-
-Write a javascript function to clone an array */
-
-//-----------------------------------------------------------------
-
-
-
-
-
-/* Question
+/* Question 13
 
 In an array of string and numbers, add only those members which are not string */
 
+let array1 = ["sidra", "sawera", 1, 3, "shoaib"];
+let sum1 = 0
+
+array1.forEach(function (val) {
+    if (typeof val != "string") {
+        sum1 = sum1 + val;
+    }
+
+});
+console.log(sum1)
+
 //-----------------------------------------------------------------
+
+
+
+/* Question 14   **imp qs**
+Loop an array of objects and remove all objects which don't have gender's value male*/
+
+let details = [
+
+    {
+        name: "sawera",
+        age: 26,
+        gender: "female"
+    },
+    {
+        name: "shoaob",
+        age: 12,
+        gender: "male"
+    },
+    {
+        name: "shomzi",
+        age: 32,
+        gender: "female"
+    },
+    {
+        name: "syed ali",
+        age: 22,
+        gender: "male"
+    },
+
+]
+//1st way
+// let gender= details.filter(function(val){
+//     return  val.gender=== "male";
+// })
+
+//2nd way
+/* sabsy pehly total non-male count kro
+phir aik non-male bndy ko hatany ka code likho
+phir us code ko total non-male times cala do */
+var counting = 0;
+details.forEach(function (elem) {
+    if (elem.gender !== "male") counting++;
+})
+for (let i = 0; i < details.length; i++) {
+    if (arr[i].gender !== "male") {
+        arr.splice(j, 1)
+    }
+}
+
+//-----------------------------------------------------------------
+
+
+
+
+
+/* Question 15
+
+Write a javascript function to clone an array */
+
+//1st way 
+function cloneArray(arr) {
+    return [...arr]
+
+}
+console.log(cloneArray([1, 2, 3, 4]));
+
+//2nd way
+function cloneArray1(arr) {
+    return arguments.map(function (e) {
+        return e;
+    })
+
+}
+let newarr = cloneArray1([1, 2, 3, 4]);
+console.log(newarr)
+//-----------------------------------------------------------------
+
+
+
+
 
 
 
