@@ -147,11 +147,16 @@ console.log(upperCase("sawera brave girl hai"))
 /*Question 10
 
 Write a javascript function which accepts an argument and returns the type . Note: there are six possible values that typeof returns. --> Object,boolean,function,number,string*/
-function checkType() {
-
+function checkType(val) {
+    return typeof val;
 }
 
-checkType()
+console.log(checkType([]));
+console.log(checkType(12));
+console.log(checkType("12"));
+console.log(checkType(true));
+console.log(checkType(undefined));
+console.log(checkType(function () { }));
 
 //--------------------------------------------------------------------------
 
@@ -292,264 +297,108 @@ function cloneArray1(arr) {
 }
 let newarr = cloneArray1([1, 2, 3, 4]);
 console.log(newarr)
-//-----------------------------------------------------------------
+
+// -----------------------------------------------------------------
 
 
 
-
-
-
-
-
-/* Question
+/* Question 16   **impppp**
 
 Write a javascript function to get the first element of an array. Passing a parameter 'n' will return the first 'n' elements of the array */
+
+function retrieve(arr, n = 1) {
+    if (n <= arr.length) {
+        for (var i = 0; i < n; i++) {
+            console.log(arr[i])
+        }
+    }
+    else {
+        console.log(n + "to elements nahi")
+    }
+
+}
+retrieve([1, 2, 3, 4, 5], 5) // agr mai 2nd parameter 3 dy rhi hun to array mai sy shuruwat k 3 members print hun and n ki value 3 hai
 
 //---------------------------------------------------------------------
 
 
-/* Question
+/* Question 17  **impp 
 
 Write a javascript function to get the last element of an array. Passing a parameter 'n' will return the last 'n' elements of the array */
 
+function retrieve1(arr, n = 1) {
+    if (n <= arr.length) {
+        for (var i = 0; i < n; i++) {
+            console.log(arr[arr.length - 1 - i])
+        }
+    }
+    else {
+        console.log(n + "to elements nahi")
+    }
+
+}
+retrieve1([1, 2, 3, 4, 5], 4);
 
 //-------------------------------------------------------------------------
 
-/*Question
+/*Question 18   **imp and diffcult ***
 
 Write a javascript program to find the most frequent item of an array */
+function frequent(arr) {
+    let freq = {
+    };
+    arr.forEach(function (elem) {
+        if (freq.hasOwnProperty(elem)) freq[elem]++;
+        else freq[elem] = 1;
+    })
+    let answer = Object.keys(freq).reduce(function (acc, next) {
+        return freq[acc] > freq[num] ? acc : next;
+    })
+    console.log(answer);
+}
 
+frequent([1, 2, 3, 4, 5, 5, 2, 3, 3, 3, , 3, 3, 2, 2, 2, 2, 22, 22, 4, 4, 2, 2, 2,])
 
 //-------------------------------------------------------
 
 
-
-
-
-/*Question
+/*Question 19  **imp and difficult***
 
 Write a javascript program to shuffle an array */
+function shuffle(arr) {
+    //sabse pehla nikalo kitna area shuffle area ha 
+    let totalShuffleArea = arr.length;
+    totalShuffleArea--;
+    //ek random number nikalo
+    while (totalShuffleArea > 0) {
+        let indexToBeExchanged = Math.floor(Math.random() * totalShuffleArea);
 
+        let temp = arr[totalShuffleArea];
+        arr[totalShuffleArea] = arr[indexToBeExchanged];
+        arr[indexToBeExchanged] = temp;
+    }
+    return arr;
+
+}
+console.log(shuffle([1, 2, 3, 4, 5, 6, 7]));
 
 //----------------------------------------------------------------
 
 
 
-/*Question
+/*Question 20
 
 Write a javascript program to commute the union of two arrays
 Sample Data :
 console.log(union([1,2,3], [100,2,1,100]))
 [1,2,3,10,100] */
 
-
+function union (arr1, arr2){
+    return [...new Set(arr1.concat(arr2))];
+}
+console.log(union([1,2,3,4,5,6], [2,3,4,6,6,6]));
 
 //-----------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 9
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 10
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 11
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 12
-
-*/
-
-
-
-
-
-
-
-
-
-/* Question 13
-
-*/
-
-
-
-
-
-
-
-/* Question 14
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 15
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 16
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 17
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 18
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 19
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 20
-
-*/
-
-
-
-
 
 
 
@@ -569,13 +418,6 @@ console.log(union([1,2,3], [100,2,1,100]))
 
 
 
-
-
-
-
-
-
-
 /* Question 22
 
 */
@@ -586,21 +428,9 @@ console.log(union([1,2,3], [100,2,1,100]))
 
 
 
-
-
-
-
-
-
-
 /* Question 23
 
 */
-
-
-
-
-
 
 
 
@@ -626,55 +456,9 @@ console.log(union([1,2,3], [100,2,1,100]))
 
 
 
-
-
 /* Question 25
 
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 3
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Question 3
-
-*/
 
